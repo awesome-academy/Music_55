@@ -1,9 +1,10 @@
-package com.example.namp5.music_55.ui.home;
+package framgia.phannam.android.nmusic.ui.home;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.namp5.music_55.R;
+import com.fristproject.android.music55.R;
+
 
 public class HomeActivity extends AppCompatActivity {
 

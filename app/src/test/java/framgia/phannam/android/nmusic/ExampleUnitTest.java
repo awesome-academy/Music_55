@@ -1,4 +1,4 @@
-package com.example.namp5.music_55;
+package framgia.phannam.android.nmusic;
 
 import org.junit.Test;
 
