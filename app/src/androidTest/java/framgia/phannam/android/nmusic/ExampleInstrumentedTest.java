@@ -1,4 +1,4 @@
-package com.example.namp5.music_55;
+package framgia.phannam.android.nmusic;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
