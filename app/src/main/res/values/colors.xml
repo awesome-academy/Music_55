@@ -6,5 +6,9 @@
     <color name="color_backgound">#342D50</color>
     <color name="color_white">#FFFFFF</color>
     <color name="color_background_navigatiton">#544765</color>
+    <color name="color_tab">#6D6080</color>
+    <color name="color_black">#000000</color>
+    <color name="color_matter_black">#00000000</color>
+
 </resources>
 

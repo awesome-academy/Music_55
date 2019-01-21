@@ -2,4 +2,12 @@
 <resources>
     <dimen name="dp_30">30dp</dimen>
     <dimen name="dp_45">45dp</dimen>
+    <dimen name="dp_220">220dp</dimen>
+    <dimen name="dp_200">200dp</dimen>
+    <dimen name="dp_20">20dp</dimen>
+    <dimen name="dp_240">240dp</dimen>
+    <dimen name="dp_370">370dp</dimen>
+    <dimen name="dp_8">8dp</dimen>
+    <dimen name="dp_0">0dp</dimen>
+    <dimen name="dp_168">168dp</dimen>
 </resources>
