@@ -1,6 +1,5 @@
 package framgia.phannam.android.nmusic.ui.home;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -81,11 +80,15 @@ public class HomeCategoriesAdapter extends RecyclerView.Adapter
         }
     }
 
+    public void setGenres(List<Categories> categories) {
+        this.mCategories = categories;
+        notifyDataSetChanged();
+    }
     public void setOnGenreClickListener(OnCateClickListener listener) {
         mListener = listener;
     }
 
     interface OnCateClickListener {
-        void onCateClicked(String genre);
+        void onCateClicked(String cates);
     }
 }

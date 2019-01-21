@@ -1,24 +1,21 @@
 package framgia.phannam.android.nmusic.ui;
 
-import android.content.Context;
-import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.fristproject.android.music55.R;
 
-import framgia.phannam.android.nmusic.ui.home.HomeCategoriesAdapter;
+import framgia.phannam.android.nmusic.ui.home.FragmentCategories;
 
 public class MainActivity extends AppCompatActivity implements
         BottomNavigationView.OnNavigationItemSelectedListener {
-    private HomeCategoriesAdapter mCategoriesAdapter;
     public static final String TITLE_ACTIONBAR = "Music";
 
     @Override
@@ -38,6 +35,14 @@ public class MainActivity extends AppCompatActivity implements
         BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
         navigation.setOnNavigationItemSelectedListener(this);
 
+        loadFragment(new FragmentCategories());
+
+    }
+
+    private void loadFragment(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_categories, fragment);
+        transaction.commit();
     }
 
     @Override

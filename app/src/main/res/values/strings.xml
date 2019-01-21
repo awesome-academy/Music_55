@@ -4,5 +4,11 @@
     <string name="string_favorite">Favorite</string>
     <string name="string_my_music">My Music</string>
     <string name="string_music_name">Music name</string>
+    <string name="genre_all_music">All Music</string>
+    <string name="genre_all_audio">All Audio</string>
+    <string name="genre_alternative">Alternative</string>
+    <string name="genre_ambient">Ambient</string>
+    <string name="genre_country">Country</string>
+    <string name="genre_classical">Classical</string>
 </resources>
 
