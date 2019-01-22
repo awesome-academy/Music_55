@@ -1,4 +1,4 @@
-package framgia.phannam.android.nmusic.data.constant;
+package framgia.phannam.android.nmusic.utils;
 
 import android.support.annotation.StringDef;
 

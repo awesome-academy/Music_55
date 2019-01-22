@@ -16,21 +16,21 @@ import com.fristproject.android.music55.R;
 
 import java.util.List;
 
-import framgia.phannam.android.nmusic.data.model.home.Categories;
+import framgia.phannam.android.nmusic.data.model.home.Genres;
 
 /**
  * Created by namp5 on 1/17/2019.
  */
 
-public class HomeCategoriesAdapter extends RecyclerView.Adapter
-        <HomeCategoriesAdapter.ViewHolder> {
-    private List<Categories> mCategories;
+public class GenresAdapter extends RecyclerView.Adapter
+        <GenresAdapter.ViewHolder> {
+    private List<Genres> mGenres;
     private Context mContext;
     private LayoutInflater mInflater;
-    private OnCateClickListener mListener;
+    private OnGenresClickListener mListener;
 
-    public HomeCategoriesAdapter(List<Categories> categories, Context context) {
-        mCategories = categories;
+    public GenresAdapter(List<Genres> genres, Context context) {
+        mGenres = genres;
         mContext = context;
     }
 
@@ -46,49 +46,52 @@ public class HomeCategoriesAdapter extends RecyclerView.Adapter
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        Categories categories = mCategories.get(i);
-        viewHolder.bindView(categories, mListener);
+        Genres genres = mGenres.get(i);
+        viewHolder.bindView(genres, mListener);
     }
 
     @Override
     public int getItemCount() {
-        return mCategories != null ? mCategories.size() : 0;
+        return mGenres != null ? mGenres.size() : 0;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView mTextViewTitle;
-        private ImageView mImageViewCate;
+        private ImageView mImageViewGenres;
+        private String mNameGenres;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             mTextViewTitle = itemView.findViewById(R.id.text_categories);
-            mImageViewCate = itemView.findViewById(R.id.image_categories);
+            mImageViewGenres = itemView.findViewById(R.id.image_categories);
         }
 
-        public void bindView(final Categories categories, final OnCateClickListener listener) {
-            mTextViewTitle.setText(categories.getCate());
-            Glide.with(mImageViewCate)
-                    .load(categories.getCateImage())
+        public void bindView(final Genres genres, final OnGenresClickListener listener) {
+            mTextViewTitle.setText(genres.getGenres());
+            Glide.with(mImageViewGenres)
+                    .load(genres.getGenresImage())
                     .apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL))
-                    .into(mImageViewCate);
-            mImageViewCate.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    listener.onCateClicked(categories.getCateName());
-                }
-            });
+                    .into(mImageViewGenres);
+            mNameGenres = genres.getGenresName();
+            mImageViewGenres.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            mListener.onGenresClicked(mNameGenres);
         }
     }
 
-    public void setGenres(List<Categories> categories) {
-        this.mCategories = categories;
+    public void setGenres(List<Genres> categories) {
+        this.mGenres = categories;
         notifyDataSetChanged();
     }
-    public void setOnGenreClickListener(OnCateClickListener listener) {
+
+    public void setOnGenreClickListener(OnGenresClickListener listener) {
         mListener = listener;
     }
 
-    interface OnCateClickListener {
-        void onCateClicked(String cates);
+    interface OnGenresClickListener {
+        void onGenresClicked(String genres);
     }
 }
