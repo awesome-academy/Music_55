@@ -28,6 +28,7 @@ public class FragmentGenres extends Fragment implements
     private Context mContext;
     private HomeContract.Presenter mPresenter;
 
+
     public static FragmentGenres newInstance() {
         FragmentGenres fragmentGenres = new FragmentGenres();
         return fragmentGenres;
@@ -36,7 +37,7 @@ public class FragmentGenres extends Fragment implements
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_gategories, container, false);
+        View view = inflater.inflate(R.layout.fragment_genres, container, false);
         mContext = getContext();
         mRecyclerView = view.findViewById(R.id.recyler_categories);
         GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), SPAN_COUNT);

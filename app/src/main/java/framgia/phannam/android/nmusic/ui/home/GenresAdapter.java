@@ -40,7 +40,7 @@ public class GenresAdapter extends RecyclerView.Adapter
             mInflater = LayoutInflater.from(viewGroup.getContext());
         }
         View view = mInflater.from(viewGroup.getContext())
-                .inflate(R.layout.item_categories, viewGroup, false);
+                .inflate(R.layout.item_genres, viewGroup, false);
         return new ViewHolder(view);
     }
 

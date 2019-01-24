@@ -9,6 +9,7 @@
     <color name="color_tab">#6D6080</color>
     <color name="color_black">#000000</color>
     <color name="color_matter_black">#00000000</color>
-
+    <color name="color_grey">#D1D9E2</color>
+    <color name="color_backgroud_play_music">#5A565F</color>
 </resources>
 
