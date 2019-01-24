@@ -2,7 +2,7 @@ package framgia.phannam.android.nmusic.ui.home;
 
 import java.util.List;
 
-import framgia.phannam.android.nmusic.data.model.home.Categories;
+import framgia.phannam.android.nmusic.data.model.home.Genres;
 
 /**
  * Created by namp5 on 1/17/2019.
@@ -10,14 +10,14 @@ import framgia.phannam.android.nmusic.data.model.home.Categories;
 
 public class HomeContract {
     interface Presenter {
-        void loadCategories();
+        void loadGenres();
 
-        void loadSongsByCates();
+        void loadSongsByGenres();
     }
 
     interface View {
-        void showCategories(List<Categories> categories);
+        void showGenres(List<Genres> genres);
 
-        void showSongsByCates();
+        void showSongsByGenres();
     }
 }

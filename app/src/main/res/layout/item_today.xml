@@ -1,34 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/dp_120"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/dp_130"
+    android:layout_height="@dimen/dp_165"
     android:layout_margin="@dimen/dp_4">
 
-    <ImageView
-        android:id="@+id/image_today"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_90"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
-        android:id="@+id/text_categories"
+        android:id="@+id/text_today"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/dp_8"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/dp_2"
+        android:layout_marginLeft="@dimen/dp_8"
+        android:layout_marginRight="@dimen/dp_8"
         android:text="@string/string_music_name"
-        android:textAllCaps="true"
+        android:textColor="@color/color_black"
+        android:textSize="@dimen/sp_20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/text_today_artists"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|center"
+        android:text="@string/string_music_name"
         android:textColor="@color/color_black"
         android:textSize="@dimen/sp_15"
-        android:layout_marginTop="@dimen/dp_4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_today"
+        app:layout_constraintTop_toBottomOf="@+id/text_today"
         app:layout_constraintVertical_bias="0.0" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_today"
+        android:layout_width="@dimen/dp_130"
+        android:layout_height="@dimen/dp_120"
+        android:elevation="@dimen/dp_8"
+        app:cardCornerRadius="@dimen/dp_4"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/image_today"
+            android:layout_width="@dimen/dp_130"
+            android:layout_height="@dimen/dp_120"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="@+id/card_today"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/card_today"
+            app:layout_constraintTop_toTopOf="@+id/card_today" />
+
+    </android.support.v7.widget.CardView>
 </android.support.constraint.ConstraintLayout>

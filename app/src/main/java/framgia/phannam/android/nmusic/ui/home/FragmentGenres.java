@@ -15,18 +15,23 @@ import com.fristproject.android.music55.R;
 
 import java.util.List;
 
-import framgia.phannam.android.nmusic.data.model.home.Categories;
-import framgia.phannam.android.nmusic.data.repository.CatesRepository;
-import framgia.phannam.android.nmusic.data.source.CategoriesLocalDataSource;
+import framgia.phannam.android.nmusic.data.model.home.Genres;
+import framgia.phannam.android.nmusic.data.repository.GenresRepository;
+import framgia.phannam.android.nmusic.data.source.GenresLocalDataSource;
 
 
-public class FragmentCategories extends Fragment implements HomeContract.View,
-        HomeCategoriesAdapter.OnCateClickListener {
+public class FragmentGenres extends Fragment implements
+        GenresAdapter.OnGenresClickListener, HomeContract.View {
     public static final int SPAN_COUNT = 2;
     private RecyclerView mRecyclerView;
-    private HomeCategoriesAdapter mCategoriesAdapter;
+    private GenresAdapter mCategoriesAdapter;
     private Context mContext;
     private HomeContract.Presenter mPresenter;
+
+    public static FragmentGenres newInstance() {
+        FragmentGenres fragmentGenres = new FragmentGenres();
+        return fragmentGenres;
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -36,31 +41,26 @@ public class FragmentCategories extends Fragment implements HomeContract.View,
         mRecyclerView = view.findViewById(R.id.recyler_categories);
         GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), SPAN_COUNT);
         mRecyclerView.setLayoutManager(layoutManager);
-        mCategoriesAdapter = new HomeCategoriesAdapter(null, mContext);
+        mCategoriesAdapter = new GenresAdapter(null, mContext);
         mCategoriesAdapter.setOnGenreClickListener(this);
         mRecyclerView.setAdapter(mCategoriesAdapter);
         mPresenter = new HomePresenter(this,
-                CatesRepository.getInstance(new CategoriesLocalDataSource()));
-        mPresenter.loadCategories();
+                GenresRepository.getInstance(new GenresLocalDataSource()));
+        mPresenter.loadGenres();
         return view;
     }
 
-    public static FragmentCategories newInstance() {
-        FragmentCategories fragmentCategories = new FragmentCategories();
-        return fragmentCategories;
-    }
-
     @Override
-    public void onCateClicked(String cates) {
+    public void onGenresClicked(String cates) {
 
     }
 
     @Override
-    public void showCategories(List<Categories> categories) {
-        mCategoriesAdapter.setGenres(categories);
+    public void showGenres(List<Genres> genres) {
+        mCategoriesAdapter.setGenres(genres);
     }
 
     @Override
-    public void showSongsByCates() {
+    public void showSongsByGenres() {
     }
 }

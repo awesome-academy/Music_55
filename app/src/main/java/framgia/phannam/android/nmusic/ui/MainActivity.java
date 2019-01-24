@@ -12,7 +12,8 @@ import android.view.MenuItem;
 
 import com.fristproject.android.music55.R;
 
-import framgia.phannam.android.nmusic.ui.home.FragmentCategories;
+import framgia.phannam.android.nmusic.ui.home.FragmentGenres;
+import framgia.phannam.android.nmusic.ui.today.FragmentToDay;
 
 public class MainActivity extends AppCompatActivity implements
         BottomNavigationView.OnNavigationItemSelectedListener {
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setTheme(R.style.AppTheme);
         setContentView(R.layout.activity_main);
@@ -35,14 +37,20 @@ public class MainActivity extends AppCompatActivity implements
         BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
         navigation.setOnNavigationItemSelectedListener(this);
 
-        loadFragment(new FragmentCategories());
-
+        loadFragment(new FragmentGenres());
+        loadFragmentToDay(new FragmentToDay());
     }
 
     private void loadFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_categories, fragment);
+        transaction.add(R.id.frame_categories, fragment);
         transaction.commit();
+    }
+
+    private void loadFragmentToDay(Fragment fragment){
+        FragmentTransaction transaction1 =getSupportFragmentManager().beginTransaction();
+        transaction1.add(R.id.frame_today,fragment);
+        transaction1.commit();
     }
 
     @Override
