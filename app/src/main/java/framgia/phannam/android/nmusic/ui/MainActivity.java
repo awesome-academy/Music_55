@@ -1,7 +1,5 @@
 package framgia.phannam.android.nmusic.ui;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -25,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements
         BottomNavigationView.OnNavigationItemSelectedListener {
     public static final String TITLE_ACTION_BAR = "Music";
     private Window mWindow;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
@@ -35,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements
 
     private void initView() {
         mWindow = getWindow();
-        mWindow.setStatusBarColor(ContextCompat.getColor(this,R.color.color_background_navigatiton));
+        mWindow.setStatusBarColor(ContextCompat.getColor(this, R.color.color_background_navigatiton));
         Toolbar toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setIcon(R.drawable.ic_menu);
@@ -45,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements
         navigation.setOnNavigationItemSelectedListener(this);
 
         loadFragmentGenres(new FragmentGenres());
-
         loadFragmentToDay(new FragmentToDay());
     }
 

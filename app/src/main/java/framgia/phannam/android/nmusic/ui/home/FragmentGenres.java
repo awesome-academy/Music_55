@@ -28,7 +28,6 @@ public class FragmentGenres extends Fragment implements
     private Context mContext;
     private HomeContract.Presenter mPresenter;
 
-
     public static FragmentGenres newInstance() {
         FragmentGenres fragmentGenres = new FragmentGenres();
         return fragmentGenres;

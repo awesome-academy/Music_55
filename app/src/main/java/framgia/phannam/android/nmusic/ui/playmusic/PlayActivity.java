@@ -59,8 +59,8 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.tool_bar_play_music :
+        switch (view.getId()) {
+            case R.id.tool_bar_play_music:
                 onBackPressed();
                 break;
         }
