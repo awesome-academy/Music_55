@@ -16,4 +16,5 @@ public @interface TodayEntity {
     String MUSIC_3 = "Today_top_3";
     String MUSIC_4 = "Today_top_4";
     String MUSIC_5 = "Today_top_5";
+
 }
