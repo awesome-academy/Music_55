@@ -12,5 +12,18 @@
     <style name="SplashTheme" parent="AppTheme">
         <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
+
+    <style name="CollapsedAppBarTheme" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">@color/color_white</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="GenreTextTheme" parent="android:Widget.TextView">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">10dp</item>
+    </style>
 </resources>
 
