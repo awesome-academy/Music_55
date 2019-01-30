@@ -20,4 +20,18 @@ public interface TrackDataSource {
 
         void searchTracksOnline(String name, int offSet, OnFetchDataListener<Track> listener);
     }
+
+    interface LocalDataSource {
+        void getOfflineTracksInFolder(String folderName, OnFetchDataListener<Track> listener);
+
+        void getOfflineTracks(OnFetchDataListener<Track> listener);
+
+        boolean deleteOfflineTrack(Track track);
+
+        boolean deleteTrack(Track track);
+
+        List<Track> getTracksFavorite();
+
+    }
 }
+

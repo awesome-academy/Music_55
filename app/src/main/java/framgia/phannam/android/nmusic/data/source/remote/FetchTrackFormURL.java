@@ -1,9 +1,11 @@
 package framgia.phannam.android.nmusic.data.source.remote;
 
 import android.os.AsyncTask;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -76,8 +78,13 @@ public class FetchTrackFormURL extends AsyncTask<String, Void, List<Track>> {
             String title = jsonObject.optString(TrackEntity.TITLE);
             String artist = jsonObject.optString(TrackEntity.ARTIST);
             String uri = jsonObject.optString(TrackEntity.URI);
-            String publisherAlbumTitle = jsonObject.optJSONObject(TrackEntity.PUBLISHER_METADATA)
-                    .getString(TrackEntity.PUBLISHER_ALBUM_TITLE);
+            String publisherAlbumTitle = "";
+            if (!jsonObject.isNull(TrackEntity.PUBLISHER_METADATA)) {
+                if (!jsonObject.optJSONObject(TrackEntity.PUBLISHER_METADATA).isNull(TrackEntity.PUBLISHER_ALBUM_TITLE))
+                    publisherAlbumTitle = jsonObject.optJSONObject(TrackEntity.PUBLISHER_METADATA)
+                            .getString(TrackEntity.PUBLISHER_ALBUM_TITLE);
+            }
+
             Track track = new Track.TrackBuilder()
                     .withId(id)
                     .withArtworkUrl(artworkUrl)
