@@ -35,4 +35,6 @@
     <dimen name="dp_320">320dp</dimen>
     <dimen name="dp_50">50dp</dimen>
     <dimen name="sp_18">18sp</dimen>
+    <dimen name="dp_70">70dp</dimen>
+    <dimen name="dp_80">80dp</dimen>
 </resources>

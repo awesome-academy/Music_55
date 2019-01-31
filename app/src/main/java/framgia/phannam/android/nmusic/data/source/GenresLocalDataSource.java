@@ -11,7 +11,7 @@ import framgia.phannam.android.nmusic.utils.GenresEntity;
 public class GenresLocalDataSource implements GenresDataSource {
 
     @Override
-    public List<Genres> getGenres() {
+    public  List<Genres> getGenres() {
         List<Genres> genres = new ArrayList<>();
         genres.add(new Genres(GenresEntity.ALL_MUSIC, R.string.genre_all_music, R.raw.allmusic));
         genres.add(new Genres(GenresEntity.ALL_AUDIO, R.string.genre_all_audio, R.raw.audio));
