@@ -166,31 +166,31 @@ public class TrackDatabaseHelper extends SQLiteOpenHelper {
     }
 
     private Track parseTrackFromRaw(Cursor cursor) {
-        Track track = new Track.TrackBuilder().build();
-        try {
-            track.setId(cursor.getInt(cursor.getColumnIndexOrThrow(TrackEntity.ID)));
-            track.setTitle(cursor.getString(cursor.getColumnIndexOrThrow(TrackEntity.TITLE)));
-            track.setArtworkUrl(cursor.getString(cursor.getColumnIndexOrThrow(TrackEntity.ARTWORK_URL)));
-            track.setDescription(cursor.getString(cursor.getColumnIndexOrThrow(TrackEntity.DESCRIPTION)));
-            track.setDuration(cursor.getInt(cursor.getColumnIndexOrThrow(TrackEntity.DURATION)));
-            track.setGenre(cursor.getString(cursor.getColumnIndexOrThrow(TrackEntity.GENRE)));
-            track.setUri(cursor.getString(cursor.getColumnIndexOrThrow(TrackEntity.URI)));
-            track.setPublisherAlbumTitle(cursor.getString(cursor.getColumnIndexOrThrow(TrackEntity.ARTIST)));
+            Track track = new Track.TrackBuilder().build();
+            try {
+                track.setId(cursor.getInt(cursor.getColumnIndexOrThrow(TrackEntity.ID)));
+                track.setTitle(cursor.getString(cursor.getColumnIndexOrThrow(TrackEntity.TITLE)));
+                track.setArtworkUrl(cursor.getString(cursor.getColumnIndexOrThrow(TrackEntity.ARTWORK_URL)));
+                track.setDescription(cursor.getString(cursor.getColumnIndexOrThrow(TrackEntity.DESCRIPTION)));
+                track.setDuration(cursor.getInt(cursor.getColumnIndexOrThrow(TrackEntity.DURATION)));
+                track.setGenre(cursor.getString(cursor.getColumnIndexOrThrow(TrackEntity.GENRE)));
+                track.setUri(cursor.getString(cursor.getColumnIndexOrThrow(TrackEntity.URI)));
+                track.setPublisherAlbumTitle(cursor.getString(cursor.getColumnIndexOrThrow(TrackEntity.ARTIST)));
 
-            int downloadable = cursor.getInt(cursor.getColumnIndexOrThrow(TrackEntity.DOWNLOADABLE));
-            if (downloadable == 1) {
-                track.setDownloadable(true);
-            } else {
-                track.setDownloadable(false);
+                int downloadable = cursor.getInt(cursor.getColumnIndexOrThrow(TrackEntity.DOWNLOADABLE));
+                if (downloadable == 1) {
+                    track.setDownloadable(true);
+                } else {
+                    track.setDownloadable(false);
+                }
+            } catch (IllegalArgumentException e) {
+                track = null;
             }
-        } catch (IllegalArgumentException e) {
-            track = null;
+            return track;
         }
-        return track;
-    }
 
-    public static final class TrackEntry {
-        static final String TABLE_NAME_TRACK = "tracks";
-        static final String TABLE_NAME_FAVORITE = "favorites";
+        public static final class TrackEntry {
+            static final String TABLE_NAME_TRACK = "tracks";
+            static final String TABLE_NAME_FAVORITE = "favorites";
+        }
     }
-}

@@ -1,6 +1,7 @@
 package framgia.phannam.android.nmusic.ui.home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -18,15 +19,18 @@ import java.util.List;
 import framgia.phannam.android.nmusic.data.model.home.Genres;
 import framgia.phannam.android.nmusic.data.repository.GenresRepository;
 import framgia.phannam.android.nmusic.data.source.GenresLocalDataSource;
+import framgia.phannam.android.nmusic.ui.details_genres.DetailsGenresActivity;
 
 
 public class FragmentGenres extends Fragment implements
         GenresAdapter.OnGenresClickListener, HomeContract.View {
     public static final int SPAN_COUNT = 2;
+    public static final String KEY_NAME_GENRES = "name_genres";
     private RecyclerView mRecyclerView;
     private GenresAdapter mCategoriesAdapter;
     private Context mContext;
     private HomeContract.Presenter mPresenter;
+    private String mNameGenres;
 
     public static FragmentGenres newInstance() {
         FragmentGenres fragmentGenres = new FragmentGenres();
@@ -51,8 +55,9 @@ public class FragmentGenres extends Fragment implements
     }
 
     @Override
-    public void onGenresClicked(String cates) {
-
+    public void onGenresClicked(String genres) {
+        mNameGenres = genres;
+        openActivityDetails();
     }
 
     @Override
@@ -62,5 +67,11 @@ public class FragmentGenres extends Fragment implements
 
     @Override
     public void showSongsByGenres() {
+    }
+
+    private void openActivityDetails() {
+        Intent intent = new Intent(getActivity(), DetailsGenresActivity.class);
+        intent.putExtra(KEY_NAME_GENRES, mNameGenres);
+        startActivity(intent);
     }
 }
